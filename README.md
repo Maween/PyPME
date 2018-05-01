@@ -11,4 +11,6 @@ for idx, fund in cf_funds.iterrows():
 ```
 Where `cf_data` is the cashflow data imported from Preqin using `pd.read_csv('preqin_cf_file.csv')`, and `local_index` is a 2-column DataFrame in the format [Date|Index_Value].
 
-The code above iterates over all unique funds in the file, and assigns the metric on a per-fund basis.
+The code above iterates over all unique funds in the file, and assigns the metric on a per-fund basis, using `local_index` as the basis for discount factor.
+
+The library automatically finds the closest index dates for a given cash flow, and thus day-for-day index data is not required for the code to run properly (albeit, better resolution does obviously increase accuracy).
