@@ -9,6 +9,6 @@ for idx, fund in cf_funds.iterrows():
   cf_funds.loc[idx,'DirectAlpha'] = pypme.Direct_Alpha_PME(fund_cf["Transaction Date"],fund_cf["Transaction Amount"],fund_cf["Transaction Category"],local_index.iloc[:,0],local_index.iloc[:,1])
   cf_funds.loc[idx,'PME+'] = pypme.PME_PLUS(fund_cf["Transaction Date"],fund_cf["Transaction Amount"],fund_cf["Transaction Category"],local_index.iloc[:,0],local_index.iloc[:,1])                      
 ```
-Where `cf_data` is the cashflow data imported from Preqin using `pd.read_csv('preqin_cf_file.csv')`, and `local_index` is a 2-collumn DataFrame in the format (Date|Index_Value).
+Where `cf_data` is the cashflow data imported from Preqin using `pd.read_csv('preqin_cf_file.csv')`, and `local_index` is a 2-column DataFrame in the format [Date|Index_Value].
 
 The code above iterates over all unique funds in the file, and assigns the metric on a per-fund basis.
